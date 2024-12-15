@@ -52,6 +52,7 @@ public struct PrayerDetails: Reducer {
 public extension PrayerDetails {
     struct State: Identifiable, Equatable {
         public var id: Prayer.ID { prayer.id }
+        
         public var prayer: Prayer
         public var date: String
 

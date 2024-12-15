@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-        <key>raqaat_count</key>
-        <dict>
-            <key>NSStringLocalizedFormatKey</key>
-            <string>%#@raqaatCount@</string>
-            <key>raqaatCount</key>
-            <dict>
-                <key>NSStringFormatSpecTypeKey</key>
-                <string>NSStringPluralRuleType</string>
-                <key>NSStringFormatValueTypeKey</key>
-                <string>d</string>
-                <key>one</key>
-                <string>ركعة</string>
-                <key>two</key>
-                <string>ركعتان</string>
-                <key>other</key>
-                <string>%d ركعات</string>
-            </dict>
-        </dict>
-        <key>days_count</key>
-        <dict>
-            <key>NSStringLocalizedFormatKey</key>
-            <string>%#@daysCount@</string>
-            <key>daysCount</key>
-            <dict>
-                <key>NSStringFormatSpecTypeKey</key>
-                <string>NSStringPluralRuleType</string>
-                <key>NSStringFormatValueTypeKey</key>
-                <string>d</string>
-                <key>one</key>
-                <string>يوم</string>
-                <key>two</key>
-                <string>يومان</string>
-                <key>other</key>
-                <string>%d ايام</string>
-            </dict>
-        </dict>
-        <key>times_count</key>
-        <dict>
-            <key>NSStringLocalizedFormatKey</key>
-            <string>%#@timesCount@</string>
-            <key>timesCount</key>
-            <dict>
-                <key>NSStringFormatSpecTypeKey</key>
-                <string>NSStringPluralRuleType</string>
-                <key>NSStringFormatValueTypeKey</key>
-                <string>d</string>
-                <key>zero</key>
-                <string>ولا مرة</string>
-                <key>one</key>
-                <string>مرة واحدة</string>
-                <key>two</key>
-                <string>مراتان</string>
-                <key>other</key>
-                <string>%d مرات</string>
-            </dict>
-        </dict>
-    </dict>
+<dict>
+	<key>raqaat_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@raqaatCount@</string>
+		<key>raqaatCount</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>ركعة</string>
+			<key>two</key>
+			<string>ركعتان</string>
+			<key>other</key>
+			<string>%d ركعات</string>
+		</dict>
+	</dict>
+	<key>days_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@daysCount@</string>
+		<key>daysCount</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>يوم</string>
+			<key>two</key>
+			<string>يومان</string>
+			<key>other</key>
+			<string>%d ايام</string>
+		</dict>
+	</dict>
+	<key>times_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@timesCount@</string>
+		<key>timesCount</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>ولا مرة</string>
+			<key>one</key>
+			<string>مرة واحدة</string>
+			<key>two</key>
+			<string>مراتان</string>
+			<key>other</key>
+			<string>%d مرات</string>
+		</dict>
+	</dict>
+</dict>
 </plist>

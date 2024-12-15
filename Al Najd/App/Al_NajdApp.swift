@@ -29,6 +29,9 @@ struct Al_NajdApp: App {
     var body: some Scene {
         WindowGroup {
             RootView(store: .mainRoot)
+                .environment(\.layoutDirection, .rightToLeft)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .edgesIgnoringSafeArea(.all)
                 .onShake {
                     showPulse = true
                 }

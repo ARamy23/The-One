@@ -11,7 +11,8 @@ public extension Target {
             "Al Najd/**",
         ],
         resources: [
-            "Al Najd/Resources/**"
+            "Al Najd/Resources/**",
+            "Al Najd/Modules/DesignSystem/**"
         ],
         scripts: .mainAppScripts,
         dependencies: .mainAppDependencies,

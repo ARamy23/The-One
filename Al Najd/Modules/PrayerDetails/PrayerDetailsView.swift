@@ -16,6 +16,16 @@ public struct PrayerDetailsView: View {
     @ObserveInjection var inject
     let store: StoreOf<PrayerDetails>
     @ObservedObject var viewStore: ViewStoreOf<PrayerDetails>
+    
+    @State var showSheet: Bool = true {
+        didSet {
+            if showSheet == false {
+                UIView.animate(withDuration: 0.6) {
+                    showSheet = true
+                }
+            }
+        }
+    }
 
     public init(store: StoreOf<PrayerDetails>) {
         self.store = store
@@ -54,21 +64,6 @@ public struct PrayerDetailsView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
             }
-
-            Drawer(startingHeight: 50) {
-                TasksView(viewStore: viewStore)
-            }
-            .rest(at: .constant(
-                [
-                    50,
-                    0.25.asPercentage(),
-                    0.5.asPercentage(),
-                ]))
-            .impact(.heavy)
-            .spring(.p32)
-            .padding(.bottom, getSafeArea().bottom)
-            .padding(.bottom, .p16)
-
         }.background(
             viewStore.prayer.image
                 .swiftUIImage
@@ -76,7 +71,25 @@ public struct PrayerDetailsView: View {
                 .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
                 .overlay(
-                    Color.mono.offblack.opacity(0.5)))
+                    Color.mono.offblack.opacity(0.5))
+        )
+        .sheet(isPresented: $showSheet, content: {
+            TasksView(viewStore: viewStore)
+                .shadow(radius: 100)
+                .presentationBackground(Color.clear)
+                .presentationCornerRadius(.r24 + .r8)
+                .presentationDragIndicator(.automatic)
+                .presentationBackgroundInteraction(.enabled)
+                .interactiveDismissDisabled()
+                .presentationDetents(
+                    [
+                        .height(100),
+                        .fraction(0.25),
+                        .fraction(0.5),
+                        .fraction(0.75),
+                    ]
+                )
+        })
         .enableInjection()
     }
 }
@@ -99,27 +112,24 @@ struct TasksView: View {
     let viewStore: ViewStoreOf<PrayerDetails>
 
     @State var tab = 0
+    @ObserveInjection var inject
 
     var body: some View {
         ZStack {
             BlurView(.systemChromeMaterialDark)
                 .cornerRadius(.r24 + .r8)
-                .shadow(radius: 100)
 
             VStack(alignment: .center) {
-                RoundedRectangle(cornerRadius: 3.0)
-                    .foregroundColor(.gray)
-                    .frame(width: 30.0, height: 6.0)
-                    .padding(.top, .p4)
-                    .padding(.bottom, .p8)
-
                 TabView(selection: $tab) {
                     makeTasksList()
                     makeRewardsList()
                 }.tabViewStyle(.page(indexDisplayMode: .never))
             }
             .padding(.top)
+            .padding(.bottom, getSafeArea().bottom)
         }
+        .ignoresSafeArea()
+        .enableInjection()
     }
 
     @ViewBuilder
@@ -128,7 +138,18 @@ struct TasksView: View {
             SubtaskView(viewStore.prayer) {
                 viewStore.send(.onDoingPrayer, animation: .default)
             }
+            
             ScrollView(.vertical, showsIndicators: false) {
+                Text("نواية ما قبل الصلاة")
+                    .foregroundColor(.mono.offwhite)
+                    .scaledFont(.pFootnote, .bold)
+                    .multilineTextAlignment(.center)
+                    .if(viewStore.prayer.prePrayer.isEmpty, transform: { _ in EmptyView() })
+                
+                ForEach(viewStore.prayer.prePrayer) { task in
+                    RepeatableSubtaskView(task, onDoing: {})
+                }
+                
                 Text(L10n.sunnah)
                     .foregroundColor(.mono.offwhite)
                     .scaledFont(.pFootnote, .bold)
@@ -149,8 +170,8 @@ struct TasksView: View {
                     }.frame(maxWidth: .infinity)
                 }
             }
-            .padding(.bottom, getSafeArea().bottom * 5)
         }
+        .padding()
     }
 
     @ViewBuilder

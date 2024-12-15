@@ -60,7 +60,6 @@ extension AzkarDAO {
             .init(name: "ant_al_salam", reward: "", repetation: 1, currentCount: 1, prayerId: $0),
             .init(name: "mokhlseen_laho_l_deen", reward: "", repetation: 1, currentCount: 1, prayerId: $0),
             .init(name: "la_mani3_lema_a3tyt", reward: "", repetation: 1, currentCount: 1, prayerId: $0),
-            .init(name: "afterAzkar_duaa_name", reward: "afterAzkar_duaa_reward", repetation: 1, currentCount: 1, prayerId: $0),
             .init(name: "subhan_allah", reward: "", repetation: 33, currentCount: 33, prayerId: $0),
             .init(name: "alhamdulellah", reward: "", repetation: 33, currentCount: 33, prayerId: $0),
             .init(name: "allahuakbar", reward: "", repetation: 33, currentCount: 33, prayerId: $0),

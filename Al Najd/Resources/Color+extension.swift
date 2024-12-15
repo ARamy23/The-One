@@ -26,7 +26,7 @@ public extension Color {
     static let blueberryLight: Color = .init("Blueberry / Light", bundle: BundleProvider.bundle)
     static let blueberryMedium: Color = .init("Blueberry / Medium", bundle: BundleProvider.bundle)
     static let blueberrySuperlight: Color = .init("Blueberry / Superlight", bundle: BundleProvider.bundle)
-    static let blueberryPrimary: Color = .init("Blueberry/Primary", bundle: BundleProvider.bundle)
+    static let blueberryPrimary: Color = .init("Grey/Primary Grey", bundle: BundleProvider.bundle)
     static let cherryDark: Color = .init("Cherry / Dark", bundle: BundleProvider.bundle)
     static let cherryLight: Color = .init("Cherry / Light", bundle: BundleProvider.bundle)
     static let cherryMedium: Color = .init("Cherry / Medium", bundle: BundleProvider.bundle)

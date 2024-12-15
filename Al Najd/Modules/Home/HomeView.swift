@@ -239,11 +239,13 @@ struct PrayerSliderView: View {
                                 .onTapGesture {
                                     onTap(prayer)
                                 }
+                                .id(prayer.id)
                         }
                         .frame(width: 175, height: 265)
                     }
                 }
                 .padding(.horizontal, .p16)
+                .padding(.vertical, .p8)
             }
         }.padding()
     }

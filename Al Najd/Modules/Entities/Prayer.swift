@@ -21,6 +21,7 @@ public struct Prayer: Identifiable, Equatable {
     public let subtitle: String
     public let raqaat: Int
     public let reward: String
+    public var prePrayer: IdentifiedArrayOf<Zekr>
     public var sunnah: IdentifiedArrayOf<Sunnah>
     public var afterAzkar: IdentifiedArrayOf<Zekr>
     public var isDone = false
@@ -32,7 +33,9 @@ public struct Prayer: Identifiable, Equatable {
         sunnah: IdentifiedArrayOf<Sunnah>,
         afterAzkar: IdentifiedArrayOf<Zekr>,
         isDone: Bool = false,
-        reward: String) {
+        reward: String,
+        prePrayer: IdentifiedArrayOf<Zekr>
+    ) {
         self.id = Int(id)
         self.name = name
         title = L10n.prayerTitle(name.localized)
@@ -42,6 +45,7 @@ public struct Prayer: Identifiable, Equatable {
         self.afterAzkar = afterAzkar
         self.isDone = isDone
         self.reward = reward
+        self.prePrayer = prePrayer
     }
 }
 

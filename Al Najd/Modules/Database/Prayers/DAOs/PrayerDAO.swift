@@ -36,7 +36,9 @@ extension PrayerDAO {
             sunnah: .init(uniqueElements: sunnah),
             afterAzkar: .init(uniqueElements: azkar),
             isDone: isDone,
-            reward: reward)
+            reward: reward,
+            prePrayer: .init(uniqueElements: [])
+        )
     }
 }
 
